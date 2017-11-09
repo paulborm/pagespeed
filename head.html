@@ -9,10 +9,11 @@
               families: ['Lato:400,700,900']
           },
           classes: false,
-          active: (function() {
+          active: function() {
               console.log("Fonts loaded!");
               document.documentElement.classList.add("wf-loaded");
-          })()
+          },
+          timeout: 10000
       };
 
       (function(d) {
@@ -28,5 +29,9 @@
     html, body {
       margin: 0;
       padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    html.wf-loaded {
+      font-family: 'Lato', sans-serif;
     }
   </style>
