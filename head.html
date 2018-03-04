@@ -35,3 +35,27 @@
       font-family: 'Lato', sans-serif;
     }
   </style>
+  
+  <noscript id="deferred-styles">
+    <?= css('assets/css/main_lazy.css') ?>
+  </noscript>
+  
+</head>
+  
+<bod>
+
+  <script>
+    // load defereed styles
+    'use strict';
+    
+    var loadDeferredStyles = function() {
+        var stylesNodeParent = document.getElementById("deferred-styles");
+        var createNodeFromString = document.createRange().createContextualFragment(stylesNodeParent.textContent);
+        document.head.appendChild(createNodeFromString);
+    };
+    addEventListener('load', loadDeferredStyles);
+
+  </script>
+</body>
+ 
+</html>
