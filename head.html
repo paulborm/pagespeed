@@ -25,19 +25,18 @@
   </script>
 
   <style type="text/css">
-    // critical "above the fold" css
-    html, body {
+    /* critical css */
+    * {
+      box-sizing: border-box;
+    }
+    html,body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-    }
-    html.wf-loaded {
-      font-family: 'Lato', sans-serif;
     }
   </style>
   
   <noscript id="deferred-styles">
-    <?= css('assets/css/main_lazy.css') ?>
+    <link rel="stylesheet" href="path/to/stylesheet.css">
   </noscript>
   
 </head>
@@ -47,14 +46,12 @@
   <script>
     // load defereed styles
     'use strict';
-    
     var loadDeferredStyles = function() {
         var stylesNodeParent = document.getElementById("deferred-styles");
         var createNodeFromString = document.createRange().createContextualFragment(stylesNodeParent.textContent);
         document.head.appendChild(createNodeFromString);
     };
     addEventListener('load', loadDeferredStyles);
-
   </script>
 </body>
  
